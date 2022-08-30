@@ -6,6 +6,7 @@ import React, {
   useState,
   ReactNode,
   RefObject,
+  MutableRefObject,
 } from 'react';
 // icon还没实现 后续加上
 // import IconLoading from '../../icon/react-icon/IconLoading';
@@ -17,7 +18,7 @@ import Group from './group';
 import './style';
 const regexTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 function processChildren(children?: ReactNode) {
-  const childrenList = [];
+  const childrenList: any = [];
   let isPrevChildPure = false;
   React.Children.forEach(children, (child) => {
     const isCurrentChildPure = typeof child === 'string' || typeof child === 'number';
@@ -39,7 +40,7 @@ const defaultProps: ButtonProps = {
   type: 'default',
   shape: 'square',
 };
-function Button(baseProps: ButtonProps, ref: RefObject<any>) {
+function Button(baseProps: ButtonProps, ref: any) {
   const {
     getPrefixCls,
     size: ctxSize,
@@ -47,7 +48,7 @@ function Button(baseProps: ButtonProps, ref: RefObject<any>) {
     componentConfig,
     rtl,
   } = useContext(ConfigContext);
-  const props = useMergeProps<ButtonProps>(baseProps, defaultProps, componentConfig?.Button);
+  const props = useMergeProps<ButtonProps>(baseProps, defaultProps, componentConfig?.Button!);
   const {
     style,
     className,
@@ -76,7 +77,7 @@ function Button(baseProps: ButtonProps, ref: RefObject<any>) {
 
   useEffect(() => {
     if (autoInsertSpaceInButton && buttonRef && buttonRef.current) {
-      const textContent = buttonRef.current.textContent;
+      const textContent = buttonRef.current.textContent!;
       if (regexTwoCNChar.test(textContent)) {
         if (!isTwoCNChar) {
           setIsTwoCNChar(true);
@@ -86,7 +87,7 @@ function Button(baseProps: ButtonProps, ref: RefObject<any>) {
       }
     }
   }, [buttonRef.current, autoInsertSpaceInButton]);
-  const prefixCls = getPrefixCls('btn');
+  const prefixCls = getPrefixCls!('btn');
   const _type = type === 'default' ? 'secondary' : type;
   const classNames = cs(
     prefixCls,
@@ -153,7 +154,7 @@ function Button(baseProps: ButtonProps, ref: RefObject<any>) {
     </button>
   );
 }
-const ForwardRefButton = forwardRef<unknown, ButtonProps>(Button);
+const ForwardRefButton = forwardRef<RefObject<any>, ButtonProps>(Button);
 
 const ButtonComponent = ForwardRefButton as typeof ForwardRefButton & {
   __H_BUTTON: boolean;
