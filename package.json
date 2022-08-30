@@ -30,12 +30,14 @@
     ]
   },
   "dependencies": {
+    "@arco-design/color": "^0.4.0",
     "react": "^18.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^13.0.0",
     "@types/jest": "^27.0.3",
+    "@types/node": "^18.7.14",
     "@umijs/fabric": "^2.8.1",
     "@umijs/test": "^3.0.5",
     "dayjs": "^1.11.5",

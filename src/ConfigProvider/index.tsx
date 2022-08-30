@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import Empty from '../Empty';
-import { ConfigProviderProps } from './interface';
+import type { ConfigProviderProps } from './interface';
 import defaultLocale from '../locale/default';
 function renderEmpty(componentName?: string) {
   switch (componentName) {
@@ -10,7 +10,7 @@ function renderEmpty(componentName?: string) {
 }
 const defaultProps: ConfigProviderProps = {
   locale: defaultLocale,
-  prefixCls: 'H',
+  prefixCls: 'arco',
   getPopupContainer: () => document.body,
   size: 'default',
   renderEmpty,
@@ -21,7 +21,7 @@ const defaultProps: ConfigProviderProps = {
 };
 export const ConfigContext = createContext<ConfigProviderProps>({
   getPrefixCls: (componentName: string, customPrefix?: string) =>
-    `${customPrefix || 'H'}-${componentName}`,
+    `${customPrefix || 'arco'}-${componentName}`,
   ...defaultProps,
 });
 
