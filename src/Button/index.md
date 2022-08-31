@@ -14,7 +14,7 @@ const App = () => {
       <Button type="primary">Primary</Button>
       <Button type="secondary">Secondary</Button>
       <Button type="dashed">Dashed</Button>
-      <Button type="outline">Outline</Button>
+      <Button type="outline">中文</Button>
       <Button type="text">Text</Button>
     </div>
   );

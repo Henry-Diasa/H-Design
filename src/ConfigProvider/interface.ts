@@ -25,7 +25,7 @@ export interface ConfigProviderProps {
     modal?: boolean | { autoFocus?: boolean };
     drawer?: boolean | { autoFocus?: boolean };
   };
-  rtl?: boolean;
+  rtl?: boolean; // direction: rtl
   zIndex?: number;
   children?: ReactNode;
 }

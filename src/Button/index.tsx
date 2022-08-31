@@ -6,7 +6,6 @@ import React, {
   useState,
   ReactNode,
   RefObject,
-  MutableRefObject,
 } from 'react';
 // icon还没实现 后续加上
 // import IconLoading from '../../icon/react-icon/IconLoading';
@@ -16,13 +15,16 @@ import cs from '../_util/classNames';
 import { ConfigContext } from '../ConfigProvider';
 import Group from './group';
 import './style';
+// 验证中文字符
 const regexTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
+
 function processChildren(children?: ReactNode) {
   const childrenList: any = [];
   let isPrevChildPure = false;
   React.Children.forEach(children, (child) => {
     const isCurrentChildPure = typeof child === 'string' || typeof child === 'number';
     if (isCurrentChildPure && isPrevChildPure) {
+      // 多个相连的放到一个位置上
       const lastIndex = childrenList.length - 1;
       const lastChild = childrenList[lastIndex];
       childrenList[lastIndex] = `${lastChild}${child}`;
@@ -32,6 +34,7 @@ function processChildren(children?: ReactNode) {
     isPrevChildPure = isCurrentChildPure;
   });
   return React.Children.map(childrenList, (child) =>
+    // 字符串用span包裹
     typeof child === 'string' ? <span>{child}</span> : child,
   );
 }
@@ -71,6 +74,7 @@ function Button(baseProps: ButtonProps, ref: any) {
   } = props;
   // const iconNode = loading ? <IconLoading /> : icon;
   const iconNode = loading ? icon : icon;
+  // 为了控制中文字符的时候 添加一个样式
   const [isTwoCNChar, setIsTwoCNChar] = useState(false);
   const innerButtonRef = useRef();
   const buttonRef = ref || innerButtonRef;
@@ -87,8 +91,10 @@ function Button(baseProps: ButtonProps, ref: any) {
       }
     }
   }, [buttonRef.current, autoInsertSpaceInButton]);
+  // arco-btn
   const prefixCls = getPrefixCls!('btn');
   const _type = type === 'default' ? 'secondary' : type;
+  // 处理所有的样式列表
   const classNames = cs(
     prefixCls,
     `${prefixCls}-${_type}`,
@@ -107,6 +113,7 @@ function Button(baseProps: ButtonProps, ref: any) {
     },
     className,
   );
+  // 处理点击事件
   const handleClick: React.MouseEventHandler<HTMLElement> = (event: any): void => {
     if (loading) {
       typeof event?.preventDefault === 'function' && event.preventDefault();

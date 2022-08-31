@@ -5,6 +5,7 @@ export type MergePropsOptions = {
   _ignorePropsFromGlobal?: boolean;
 };
 
+// 合并props
 export default function useMergeProps<PropsType>(
   componentProps: PropsType & MergePropsOptions,
   defaultProps: Partial<PropsType>,
@@ -22,7 +23,7 @@ export default function useMergeProps<PropsType>(
     // https://github.com/facebook/react/blob/cae635054e17a6f107a39d328649137b83f25972/packages/react/src/ReactElement.js#L312
     for (const propName in _defaultProps) {
       if (mProps[propName] === undefined) {
-        mProps[propName] = _defaultProps[propName];
+        mProps[propName] = _defaultProps[propName]!;
       }
     }
 
