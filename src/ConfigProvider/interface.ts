@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
 import { ButtonProps } from '../Button';
+import { LinkProps } from '../Link';
 
 export type ComponentConfig = {
   Button?: ButtonProps;
+  Link?: LinkProps;
 };
 export interface Locale {
   locale: string;
