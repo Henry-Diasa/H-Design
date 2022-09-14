@@ -8,7 +8,7 @@ import React, {
   RefObject,
 } from 'react';
 // icon还没实现 后续加上
-// import IconLoading from '../../icon/react-icon/IconLoading';
+import { IconLoading } from '../icon';
 import type { ButtonProps } from './interface';
 import useMergeProps from '../_util/hooks/useMergeProps';
 import cs from '../_util/classNames';
@@ -72,8 +72,8 @@ function Button(baseProps: ButtonProps, ref: any) {
     long,
     ...rest
   } = props;
-  // const iconNode = loading ? <IconLoading /> : icon;
-  const iconNode = loading ? icon : icon;
+  const iconNode = loading ? <IconLoading /> : icon;
+  // const iconNode = loading ? icon : icon;
   // 为了控制中文字符的时候 添加一个样式
   const [isTwoCNChar, setIsTwoCNChar] = useState(false);
   const innerButtonRef = useRef();

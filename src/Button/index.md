@@ -29,10 +29,17 @@ export default App;
 
 ```tsx
 import React from 'react';
-import { Button } from 'H-Design';
-
+import { Button, Icon } from 'H-Design';
+const { IconPlus, IconDelete } = Icon;
 const App = () => {
-  return <div>Delete</div>;
+  return (
+    <div>
+      <Button type="primary" icon={<IconPlus />} />
+      <Button type="primary" icon={<IconDelete />}>
+        Delete
+      </Button>
+    </div>
+  );
 };
 
 export default App;
