@@ -7,11 +7,11 @@
 - [x] 按钮 Button
 - [x] 链接 Link
 - [ ] ~~排版 Typography~~
-- [ ] 排版 Icon
+- [x] 排版 Icon
 
 ### 数据展示
 
-- [ ] 头像
+- [ ] 头像 Avatar
 - [ ] 表格
 - [ ] 树
 
@@ -21,7 +21,6 @@
 - [ ] Select
 - [ ] Checkbox
 - [ ] Radio
-- [ ] TimePicker
 - [ ] TimePicker
 - [ ] Form
 - [ ] Upload

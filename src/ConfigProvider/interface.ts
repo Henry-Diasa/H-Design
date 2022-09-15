@@ -1,11 +1,15 @@
 import { ReactNode } from 'react';
+import { AvatarGroupProps, AvatarProps } from '../Avatar';
 import { ButtonProps } from '../Button';
 import { LinkProps } from '../Link';
 
 export type ComponentConfig = {
   Button?: ButtonProps;
   Link?: LinkProps;
+  Avatar?: AvatarProps;
+  'Avatar.Group'?: AvatarGroupProps;
 };
+
 export interface Locale {
   locale: string;
 }
