@@ -6,7 +6,7 @@
 
 - [x] 按钮 Button
 - [x] 链接 Link
-- [x] 排版 Icon
+- [x] 图标 Icon
 
 ### 数据展示
 
