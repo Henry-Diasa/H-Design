@@ -17,7 +17,7 @@
 ### 数据输入
 
 - [ ] 输入框 Input
-- [ ] Select
+- [ ] 选择器 Select
 - [ ] Checkbox
 - [ ] Radio
 - [ ] TimePicker
