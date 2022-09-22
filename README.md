@@ -22,4 +22,4 @@
 - [ ] Radio
 - [ ] TimePicker
 - [ ] Form
-- [ ] Upload
+- [x] Upload
