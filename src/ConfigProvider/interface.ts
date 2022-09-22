@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { AvatarGroupProps, AvatarProps } from '../Avatar';
 import { ButtonProps } from '../Button';
+import { InputProps } from '../Input';
 import { LinkProps } from '../Link';
 
 export type ComponentConfig = {
@@ -8,6 +9,7 @@ export type ComponentConfig = {
   Link?: LinkProps;
   Avatar?: AvatarProps;
   'Avatar.Group'?: AvatarGroupProps;
+  Input?: InputProps;
 };
 
 export interface Locale {
